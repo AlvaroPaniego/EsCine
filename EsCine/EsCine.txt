@@ -1,0 +1,27 @@
+Hacer lo basico e la tabla peliculas
+
+cargar la tabla disponible siguiendo el mismo criterio
+
+sala 1 sesion 2 peli 2
+
+sala 1 sesion 3 peli 15
+
+sala 2 sesion 1 peli 15
+
+sala 2 sesion 2 peli 15
+
+sala 2 sesion 3 peli 1
+
+sala 3 sesion 1 peli 2
+
+sala 3 sesion 2 peli 1
+
+sala 3 sesion 3 peli 2
+
+entre I y H y P y O son pasillo
+
+campos
+	estado => 0 libre y 1 ocupado
+	pid id peli
+	tid id pase
+	sid id sala
