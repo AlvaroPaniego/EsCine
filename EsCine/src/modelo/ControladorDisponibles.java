@@ -5,6 +5,7 @@
  */
 package modelo;
 
+import java.util.List;
 import pojos.Disponible;
 
 /**
@@ -23,23 +24,32 @@ public class ControladorDisponibles {
         for (int fila = 1; fila < 10; fila++) {
             for (char letra = 'A'; letra < 'Y'; letra++) {
                 pos++;
-                if(letra == 'P'){
-                    disponible = new Disponible(p.obtenPases(tid), peli.obtenPeliculas(pid), s.obtenSalas(sid), fila, "PP", fila + letra + "P", (int) Math.floor(Math.random()*2), pos);
-                }else{
-                    disponible = new Disponible(p.obtenPases(tid), peli.obtenPeliculas(pid), s.obtenSalas(sid), fila, String.valueOf(letra), fila + letra + "", (int) Math.floor(Math.random()*2), pos);  
+                if (letra == 'P') {
+                    disponible = new Disponible(p.obtenPases(tid), peli.obtenPeliculas(pid), s.obtenSalas(sid), fila, "PP", fila + String.valueOf(letra) + "P", (int) Math.floor(Math.random() * 2), pos);
+                } else {
+                    disponible = new Disponible(p.obtenPases(tid), peli.obtenPeliculas(pid), s.obtenSalas(sid), fila, String.valueOf(letra), fila + String.valueOf(letra) + "", (int) Math.floor(Math.random() * 2), pos);
                 }
                 d.guardaDisponible(disponible);
-                if(letra == 'N'){
-                    d.guardaDisponible(new Disponible(p.obtenPases(tid), peli.obtenPeliculas(pid), s.obtenSalas(sid), fila, "Ñ", fila + "Ñ", (int) Math.floor(Math.random()*2), pos));
+                if (letra == 'N') {
+                    d.guardaDisponible(new Disponible(p.obtenPases(tid), peli.obtenPeliculas(pid), s.obtenSalas(sid), fila, "Ñ", fila + "Ñ", (int) Math.floor(Math.random() * 2), pos));
                     d.guardaDisponible(disponible);
                 }
             }
         }
         for (char letra = 'A'; letra <= 'Z'; letra++) {
-            disponible = new Disponible(p.obtenPases(tid), peli.obtenPeliculas(pid), s.obtenSalas(sid), 10, String.valueOf(letra), 10 + letra + "", (int) Math.floor(Math.random()*2), pos);
-            d.guardaDisponible(disponible);
+            pos++;
+                if (letra == 'P') {
+                    disponible = new Disponible(p.obtenPases(tid), peli.obtenPeliculas(pid), s.obtenSalas(sid), 10, "PP", 10 + String.valueOf(letra) + "P", (int) Math.floor(Math.random() * 2), pos);
+                } else {
+                    disponible = new Disponible(p.obtenPases(tid), peli.obtenPeliculas(pid), s.obtenSalas(sid), 10, String.valueOf(letra), 10 + String.valueOf(letra) + "", (int) Math.floor(Math.random() * 2), pos);
+                }
+                d.guardaDisponible(disponible);
+                if (letra == 'N') {
+                    d.guardaDisponible(new Disponible(p.obtenPases(tid), peli.obtenPeliculas(pid), s.obtenSalas(sid), 10, "Ñ", 10 + "Ñ", (int) Math.floor(Math.random() * 2), pos));
+                    d.guardaDisponible(disponible);
+                }
         }
-        d.guardaDisponible(new Disponible(p.obtenPases(tid), peli.obtenPeliculas(pid), s.obtenSalas(sid), 10, "AA", 10 + "AA", (int) Math.floor(Math.random()*2), pos));
-        d.guardaDisponible(new Disponible(p.obtenPases(tid), peli.obtenPeliculas(pid), s.obtenSalas(sid), 10, "AB", 10 + "AB", (int) Math.floor(Math.random()*2), pos));
+        d.guardaDisponible(new Disponible(p.obtenPases(tid), peli.obtenPeliculas(pid), s.obtenSalas(sid), 10, "AA", 10 + "AA", (int) Math.floor(Math.random() * 2), pos));
+        d.guardaDisponible(new Disponible(p.obtenPases(tid), peli.obtenPeliculas(pid), s.obtenSalas(sid), 10, "AB", 10 + "AB", (int) Math.floor(Math.random() * 2), pos));
     }
 }

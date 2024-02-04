@@ -3,11 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/alvaro.paniego/Documents/NetBeansProjects/EsCine/src/modelo/PeliculaDAO.java</file>
-            <file>file:/C:/Users/alvaro.paniego/Documents/NetBeansProjects/EsCine/src/modelo/ControladorDisponibles.java</file>
-            <file>file:/C:/Users/alvaro.paniego/Documents/NetBeansProjects/EsCine/src/modelo/DisponiblesDAO.java</file>
-            <file>file:/C:/Users/alvaro.paniego/Documents/NetBeansProjects/EsCine/src/controlador/Principal.java</file>
-            <file>file:/C:/Users/alvaro.paniego/Documents/NetBeansProjects/EsCine/src/vista/Consola.java</file>
+            <file>file:/C:/Users/dawnr/Documents/GitHub/EsCine/EsCine/src/vista/Consola.java</file>
+            <file>file:/C:/Users/dawnr/Documents/GitHub/EsCine/EsCine/src/pojos/Peliculas.java</file>
+            <file>file:/C:/Users/dawnr/Documents/GitHub/EsCine/EsCine/src/controlador/Principal.java</file>
+            <file>file:/C:/Users/dawnr/Documents/GitHub/EsCine/EsCine/src/modelo/ControladorDisponibles.java</file>
+            <file>file:/C:/Users/dawnr/Documents/GitHub/EsCine/EsCine/src/modelo/PeliculaDAO.java</file>
+            <file>file:/C:/Users/dawnr/Documents/GitHub/EsCine/EsCine/src/modelo/DisponiblesDAO.java</file>
         </group>
     </open-files>
 </project-private>

@@ -5,7 +5,9 @@
  */
 package vista;
 
+import java.util.List;
 import java.util.Scanner;
+import pojos.Disponible;
 import pojos.Peliculas;
 
 /**
@@ -26,6 +28,7 @@ public class Consola {
         System.out.println("5. Insertar disponibles.");
         System.out.println("6. Comprobar butaca.");
         System.out.println("7. Mostrar sala.");
+        System.out.println("8. Mostrar pelicula con mas espectadores.");
         System.out.println("0. Salir");
         System.out.println("********************************************************");
         
@@ -78,5 +81,32 @@ public class Consola {
         Scanner scanner = new Scanner(System.in);
         System.out.print(texto);
         return scanner.nextInt();
+    }
+    
+    public void mostrarSala(List<Disponible> listaSala) {
+        int saltoDeFila = 0;
+        for (Disponible butaca : listaSala) {
+            saltoDeFila++;
+            if (butaca.getEstado() == 1) {
+                System.out.print(butaca.getButacas() + " ");
+            } else {
+                System.out.print(".. ");
+            }
+            if (saltoDeFila > 26 && butaca.getFila() <= 10) {
+                System.out.println("");
+                saltoDeFila = 0;
+            }
+        }
+        System.out.println("");
+    }
+    
+    public void mostrarPeliculas(List<Peliculas> listaPeliculas){
+        for (Peliculas pelicula : listaPeliculas) {
+            System.out.println("************************" + pelicula.getPid() + "************************");
+            System.out.println("Titulo: " + pelicula.getTitulo());
+            System.out.println("Director: " + pelicula.getDirector());
+            System.out.println("Descripcion: " + pelicula.getDescr());
+            System.out.println("Actores: " + pelicula.getActores());
+        }
     }
 }

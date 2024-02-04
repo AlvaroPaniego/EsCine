@@ -100,7 +100,7 @@ public class PeliculaDAO {
         List<Peliculas> listaPersonas = null;
         try {
             iniciaOperacion();
-            listaPersonas = sesion.createQuery("from Pelicula").list();
+            listaPersonas = sesion.createQuery("from Peliculas").list();
         } catch (HibernateException he) {
             manejaExcepcion(he);
             throw he;
@@ -123,5 +123,4 @@ public class PeliculaDAO {
         }
         return Integer.parseInt(id.toString());
     }
-    
 }

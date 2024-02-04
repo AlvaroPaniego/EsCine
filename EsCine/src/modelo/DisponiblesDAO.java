@@ -47,7 +47,7 @@ public class DisponiblesDAO {
     }
 
     //UPDATE
-    public void actualizaPeliculas(Disponible d) throws HibernateException {
+    public void actualizaDisponible(Disponible d) throws HibernateException {
         try {
             iniciaOperacion();
             sesion.update(d);
@@ -61,7 +61,7 @@ public class DisponiblesDAO {
     }
 
     //DELETE FROM 
-    public void eliminaPeliculas(Disponible d) throws HibernateException {
+    public void eliminaDisponible(Disponible d) throws HibernateException {
         try {
             iniciaOperacion();
             sesion.delete(d);
@@ -75,7 +75,7 @@ public class DisponiblesDAO {
     }
     
     //CONSULTA DE UN OBJETO ESPECIFICO ((SELECET * FROM <TABLA> WHERE <CAMPO>) = <VALOR>)
-    public Disponible obtenPeliculas(int idDisponible) throws HibernateException {
+    public Disponible obtenDisponible(int idDisponible) throws HibernateException {
         Disponible d = null;
         try {
             iniciaOperacion();
@@ -94,7 +94,7 @@ public class DisponiblesDAO {
     //  SQL Nativo
     //  HQL (Hibernarte Query Language)
     //  Usar Criteria
-    public List<Disponible> obtenListaPeliculas() throws HibernateException {
+    public List<Disponible> obtenListaDisponibles() throws HibernateException {
         List<Disponible> listaPersonas = null;
         try {
             iniciaOperacion();
@@ -108,7 +108,7 @@ public class DisponiblesDAO {
         return listaPersonas;
     }  
     
-    public List<Disponible> obtenListaPeliculasPorSalaSesion(int sid, int tid) throws HibernateException {
+    public List<Disponible> obtenListaDisponiblesPorSalaSesion(int sid, int tid) throws HibernateException {
         List<Disponible> listaPersonas = null;
         try {
             iniciaOperacion();
@@ -149,5 +149,47 @@ public class DisponiblesDAO {
         }
         System.out.println(ocupada);
         return Integer.parseInt(ocupada.toString());
+    }
+    
+    public int cogeMaxSid(){
+        Object pos;
+        try {
+            iniciaOperacion();
+            pos = (Object) sesion.createQuery("SELECT MAX(d.sid) FROM Disponible d ").uniqueResult();
+        } catch (HibernateException he) {
+            manejaExcepcion(he);
+            throw he;
+        } finally {
+            sesion.close();
+        }
+        return Integer.parseInt(pos.toString());
+    }
+    
+    public int cogeMaxTid(){
+        Object pos;
+        try {
+            iniciaOperacion();
+            pos = (Object) sesion.createQuery("SELECT MAX(d.tid) FROM Disponible d ").uniqueResult();
+        } catch (HibernateException he) {
+            manejaExcepcion(he);
+            throw he;
+        } finally {
+            sesion.close();
+        }
+        return Integer.parseInt(pos.toString());
+    }
+    
+    public int cogeEspectadores(int pid){
+        Object pos;
+        try {
+            iniciaOperacion();
+            pos = (Object) sesion.createQuery("SELECT COUNT(d.estado) FROM Disponible d WHERE d.peliculas.pid = " + pid).uniqueResult();
+        } catch (HibernateException he) {
+            manejaExcepcion(he);
+            throw he;
+        } finally {
+            sesion.close();
+        }
+        return Integer.parseInt(pos.toString());
     }
 }
